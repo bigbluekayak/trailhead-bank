@@ -1,0 +1,40 @@
+
+
+/* make the customizations */
+$theme-colors: (
+    "primary": rgba(17, 25, 40, 0.75),
+    "info": tomato,
+    "danger": teal
+);
+
+@font-face {
+    font-family: Trailhead;
+    src: url(./assets/Trailhead_Bold2.otf);
+}
+
+$headings-font-family: Trailhead;
+
+body {
+    background-image: url(./assets/braden-jarvis-prSogOoFmkw-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@import "~bootstrap/scss/bootstrap";
+
+.glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    
+}
+
+.glass-border {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.title {
+    color: $light;
+    font-family: Trailhead;
+}
