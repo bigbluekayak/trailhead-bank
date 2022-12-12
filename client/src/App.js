@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import { useState } from "react"
 import { currency, quote } from "./helpers/helpers";
@@ -27,6 +28,111 @@ function App() {
       [fieldName]: e.target.value,
       apr: quote(loan.term)
     }));
+  }
+
+  function LoanQuote() {
+    if(!showApplication) {
+      return <div>
+        <p className="text-center">Complete this form to get a quote for loans ranging from £100 to £15,000.</p>
+                <Form.Label htmlFor="amount">Loan Amount</Form.Label>
+                <Form.Range name="amount" id="amount" min="100" max="15000" step="100" value={loan.amount} onChange={onChange} disabled={showApplication} />
+                <Form.Label htmlFor="term">Loan Term</Form.Label>
+                <Form.Range name="term" id="term" min="12" max="48" step="6" value={loan.term} onChange={onChange} disabled={showApplication} />
+                <dl>
+                  <dt>Loan Amount</dt>
+                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
+                  <dt>Term (Months)</dt>
+                  <dd>{loan.term}</dd>
+                  <dt>APR</dt>
+                  <dd>{loan.apr}</dd>
+                  <dt>Monthly payments</dt>
+                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
+                  <dt>Total cost of credit</dt>
+                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
+                </dl>
+                <div className="d-grid gap-2">
+                  <Button variant="primary" size="lg" onClick={(e) => {setShowApplication(true)}}>Apply now</Button>
+                </div>        
+      </div>
+    }
+  }
+
+  function ApplicationForm() {
+    if(showApplication) {
+    return (
+      <Form>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>First name</Form.Label>
+              <Form.Control type="text" placeholder="Enter first name" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control type="text" placeholder="Enter last name" />
+            </Form.Group>          
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Address line 1</Form.Label>
+              <Form.Control type="text" placeholder="Enter address line 1" />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Address line 2</Form.Label>
+              <Form.Control type="text" placeholder="Enter address line 2" />
+            </Form.Group>          
+          </Col>
+        </Row>
+        <Form.Group className="mb-3">
+          <Form.Label>Town or City</Form.Label>
+          <Form.Control type="text" placeholder="Town or city" />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Postcode</Form.Label>
+          <Form.Control type="text" placeholder="Postcode" />
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Residential status</Form.Label>
+          <Form.Select aria-label="Residential status">
+            <option value="Homeowner">Homeowner</option>
+            <option value="Renting">Renting</option>
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Mortgage or rent</Form.Label>
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
+              <Form.Control
+                placeholder="Mortgage or rent"
+                aria-label="Mortgage or rent"
+                aria-describedby="Mortgage or rent"
+              />
+              </InputGroup>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Other outgoings</Form.Label>
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
+              <Form.Control
+                placeholder="Other outgoings"
+                aria-label="Other outgoings"
+                aria-describedby="Other outgoings"
+              />
+              </InputGroup>
+        </Form.Group>
+        <div className="d-grid gap-2">
+                  <Button variant="primary" size="lg" onClick={(e) => {setShowApplication(true)}}>Submit</Button>
+                </div>   
+      </Form> );
+    }
+
+    
   }
 
   return (
@@ -51,27 +157,10 @@ function App() {
           <Col xs="10" md="8" lg="6">
             <Card className="glass glass-border">
               <Card.Body className="text-light">
-                <p className="text-center">Complete this form to get a quote for loans ranging from £100 to £15,000.</p>
-                <Form.Label htmlFor="amount">Loan Amount</Form.Label>
-                <Form.Range name="amount" id="amount" min="100" max="15000" step="100" value={loan.amount} onChange={onChange} disabled={showApplication} />
-                <Form.Label htmlFor="term">Loan Term</Form.Label>
-                <Form.Range name="term" id="term" min="12" max="48" step="6" value={loan.term} onChange={onChange} disabled={showApplication} />
-                <dl>
-                  <dt>Loan Amount</dt>
-                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
-                  <dt>Term (Months)</dt>
-                  <dd>{loan.term}</dd>
-                  <dt>APR</dt>
-                  <dd>{loan.apr}</dd>
-                  <dt>Monthly payments</dt>
-                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
-                  <dt>Total cost of credit</dt>
-                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
-                </dl>
-                <div className="d-grid gap-2">
-                  <Button variant="primary" size="lg" onClick={(e) => {setShowApplication(true)}}>Apply now</Button>
-                </div>
+                <LoanQuote/>
+                <ApplicationForm/>
               </Card.Body>
+              
             </Card>
           </Col>
           <Row className="justify-content-center">
