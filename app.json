@@ -1,0 +1,5 @@
+{
+    "name": "Trailhead Bank",
+    "description": "A demo Heroku app",
+    "repository": "https://github.com/bigbluekayak/trailhead-bank.git"
+  }
