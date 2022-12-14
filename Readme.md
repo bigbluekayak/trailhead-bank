@@ -10,7 +10,7 @@ Trailhead bank app can be used to demonstrate how quickly apps can be deployed t
 
 ![Heroku deploy app screen](https://res.cloudinary.com/do6asyzhl/image/upload/v1670923717/Heroku%20Demo%20App%20Instructions/Screenshot_2022-12-13_at_09.26.26_qm6b1g.png)
 
-4. Once the deployment has completed you can navigate to https://[app name from step 3].herokuapp.com/loan.
+4. Once the deployment has completed you can navigate to https://[app name from step 3].herokuapp.com/.
 
 ## Maintenance
 If you have any problems deploying this app please contact [Martin Eley](mailto:meley@salesforce.com)

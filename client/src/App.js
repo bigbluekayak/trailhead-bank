@@ -65,13 +65,13 @@ function App() {
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>First name</Form.Label>
-              <Form.Control type="text" placeholder="Enter first name" />
+              <Form.Control type="text" placeholder="Enter first name" name="first_name" value={loan.first_name} onChange={onChange} />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Last name</Form.Label>
-              <Form.Control type="text" placeholder="Enter last name" />
+              <Form.Control type="text" placeholder="Enter last name" onChange={onChange} />
             </Form.Group>          
           </Col>
         </Row>
@@ -79,53 +79,93 @@ function App() {
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Address line 1</Form.Label>
-              <Form.Control type="text" placeholder="Enter address line 1" />
+              <Form.Control type="text" placeholder="Enter address line 1" onChange={onChange} />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group className="mb-3">
               <Form.Label>Address line 2</Form.Label>
-              <Form.Control type="text" placeholder="Enter address line 2" />
+              <Form.Control type="text" placeholder="Enter address line 2" onChange={onChange} />
             </Form.Group>          
           </Col>
         </Row>
         <Form.Group className="mb-3">
           <Form.Label>Town or City</Form.Label>
-          <Form.Control type="text" placeholder="Town or city" />
+          <Form.Control type="text" placeholder="Town or city" onChange={onChange} />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Postcode</Form.Label>
-          <Form.Control type="text" placeholder="Postcode" />
+          <Form.Control type="text" placeholder="Postcode" onChange={onChange} />
         </Form.Group>
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+              <Form.Label>Employment status</Form.Label>
+              <Form.Select aria-label="Residential status" onChange={onChange}>
+                <option value="Employed full time">Employed full time</option>
+                <option value="Employed part time">Employed part time</option>
+                <option value="Unemployed">Unemployed</option>
+              </Form.Select>
+            </Form.Group>          
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+            <Form.Label>Annual income</Form.Label>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
+                <Form.Control
+                  placeholder="Annual income"
+                  aria-label="Annual income"
+                  aria-describedby="Annual income"
+                  onChange={onChange}
+                />
+                </InputGroup>
+            </Form.Group>          
+          </Col>
+        </Row>
+        
+        
         <Form.Group className="mb-3">
           <Form.Label>Residential status</Form.Label>
-          <Form.Select aria-label="Residential status">
+          <Form.Select aria-label="Residential status" onChange={onChange}>
             <option value="Homeowner">Homeowner</option>
             <option value="Renting">Renting</option>
           </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Mortgage or rent</Form.Label>
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
-              <Form.Control
-                placeholder="Mortgage or rent"
-                aria-label="Mortgage or rent"
-                aria-describedby="Mortgage or rent"
-              />
-              </InputGroup>
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Other outgoings</Form.Label>
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
-              <Form.Control
-                placeholder="Other outgoings"
-                aria-label="Other outgoings"
-                aria-describedby="Other outgoings"
-              />
-              </InputGroup>
-        </Form.Group>
+        </Form.Group>     
+
+        <Row>
+          <Col>
+            <Form.Group className="mb-3">
+            <Form.Label>Monthly mortgage or rent</Form.Label>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
+                <Form.Control
+                  placeholder="Monthly mortgage or rent"
+                  aria-label="Monthly mortgage or rent"
+                  aria-describedby="Monthly mortgage or rent"
+                  onChange={onChange}
+                />
+                </InputGroup>
+            </Form.Group>          
+          </Col>
+          <Col>
+            <Form.Group className="mb-3">
+            <Form.Label>Other monthly outgoings</Form.Label>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1">£</InputGroup.Text>
+                <Form.Control
+                  placeholder="Other monthly outgoings"
+                  aria-label="Other monthly outgoings"
+                  aria-describedby="Other monthly outgoings"
+                  onChange={onChange}
+                />
+                </InputGroup>
+            </Form.Group>          
+          </Col>
+        </Row>
+
+        
+       
         <div className="d-grid gap-2">
                   <Button variant="primary" size="lg" onClick={(e) => {setShowApplication(true)}}>Submit</Button>
                 </div>   
