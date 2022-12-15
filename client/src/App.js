@@ -8,25 +8,34 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
-import { useState } from "react"
-import { currency, quote } from "./helpers/helpers";
+import { useState, useEffect } from "react"
+import { currency, percent } from "./helpers/helpers";
+import axios from "axios";
 
 function App() {
 
   const [loan, setLoan] = useState({
-    amount: 100,
-    term: 12,
-    apr: 2.9
+    amount: "100",
+    term: "12"
   });
 
   const [showApplication, setShowApplication] = useState(false);
+
+  useEffect(() => {
+    axios.get(`/api/rate?amount=${loan.amount}&term=${loan.term}`).then(res => {      
+      setLoan(existingValues => ({
+        ...existingValues,
+        apr: res.data.rate
+      }));
+      
+    });
+  }, [loan.amount, loan.term]);
 
   const onChange = (e) => {
     const fieldName = e.target.name;
     setLoan(existingValues => ({
       ...existingValues,
-      [fieldName]: e.target.value,
-      apr: quote(loan.term)
+      [fieldName]: e.target.value
     }));
   }
 
@@ -35,24 +44,26 @@ function App() {
       return <div>
         <p className="text-center">Complete this form to get a quote for loans ranging from £100 to £15,000.</p>
                 <Form.Label htmlFor="amount">Loan Amount</Form.Label>
-                <Form.Range name="amount" id="amount" min="100" max="15000" step="100" value={loan.amount} onChange={onChange} disabled={showApplication} />
+                <Form.Range name="amount" id="amount" min="100" max="15000" step="100" value={loan.amount} onInput={onChange} disabled={showApplication} />
                 <Form.Label htmlFor="term">Loan Term</Form.Label>
-                <Form.Range name="term" id="term" min="12" max="48" step="6" value={loan.term} onChange={onChange} disabled={showApplication} />
+                <Form.Range name="term" id="term" min="12" max="48" step="6" value={loan.term} onInput={onChange} disabled={showApplication} />
                 <dl>
                   <dt>Loan Amount</dt>
                   <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
                   <dt>Term (Months)</dt>
                   <dd>{loan.term}</dd>
-                  <dt>APR</dt>
-                  <dd>{loan.apr}</dd>
-                  <dt>Monthly payments</dt>
-                  <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
-                  <dt>Total cost of credit</dt>
+                  <dt>APR *</dt>
+                  <dd>{percent("en-GB", loan.apr)}</dd>
+                  <dt>Monthly payments *</dt>
+                  <dd>{}</dd>
+                  <dt>Total cost of credit *</dt>
                   <dd>{currency("en-GB", "GBP", loan.amount)}</dd>
                 </dl>
+                <p><small class="text-muted">* For illustration purposes only, terms and conditions apply, subject to acceptance.</small>      </p>
                 <div className="d-grid gap-2">
                   <Button variant="primary" size="lg" onClick={(e) => {setShowApplication(true)}}>Apply now</Button>
-                </div>        
+                </div>
+                
       </div>
     }
   }

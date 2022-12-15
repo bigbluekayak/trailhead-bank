@@ -18,7 +18,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 12,
-        rate: 2.7,
+        rate: 0.027,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -26,7 +26,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 18,
-        rate: 2.6,
+        rate: 0.026,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -34,7 +34,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 24,
-        rate: 2.5,
+        rate: 0.025,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,7 +42,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 30,
-        rate: 2.4,
+        rate: 0.024,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -50,7 +50,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 36,
-        rate: 2.3,
+        rate: 0.023,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -58,7 +58,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 42,
-        rate: 2.2,
+        rate: 0.022,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -66,7 +66,7 @@ module.exports = {
         min: 100,
         max: 10000,
         term: 48,
-        rate: 2.1,
+        rate: 0.021,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -74,7 +74,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 12,
-        rate: 1.7,
+        rate: 0.017,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -82,7 +82,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 18,
-        rate: 1.6,
+        rate: 0.016,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -90,7 +90,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 24,
-        rate: 1.5,
+        rate: 0.015,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -98,7 +98,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 30,
-        rate: 1.4,
+        rate: 0.014,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -106,7 +106,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 36,
-        rate: 1.3,
+        rate: 0.013,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -114,7 +114,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 42,
-        rate: 1.2,
+        rate: 0.012,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -122,7 +122,7 @@ module.exports = {
         min: 10001,
         max: 15000,
         term: 48,
-        rate: 1.1,
+        rate: 0.011,
         createdAt: new Date(),
         updatedAt: new Date()
       },
