@@ -1,8 +1,9 @@
-{
+§{
   "name": "ohana-bank",
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "cd client && npm build",
     "start": "node ./bin/www"
   },
   "dependencies": {
