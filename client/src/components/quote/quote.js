@@ -1,3 +1,4 @@
+import ReactGA from 'react-ga';
 import Form from "react-bootstrap/Form";
 import { useEffect, useMemo, useState } from "react"
 import axios from "axios";
@@ -32,6 +33,12 @@ export default function Quote(props) {
           ...existingValues,
           [name]: value
         }));
+
+        ReactGA.event({
+            category: 'User',
+            action: 'Requested a quote',
+            label: `Amount ${quote.amount} over ${quote.term} months`
+          });
     }
 
     const getPayment = () => {
