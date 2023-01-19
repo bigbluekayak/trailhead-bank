@@ -1,4 +1,3 @@
-import ReactGA from 'react-ga';
 import Form from "react-bootstrap/Form";
 import { useEffect, useMemo, useState } from "react"
 import axios from "axios";
