@@ -3,8 +3,11 @@ import Form from "react-bootstrap/Form";
 import { useEffect, useMemo, useState } from "react"
 import axios from "axios";
 import { currency, percent } from "../../helpers/helpers";
+import ReactGA from 'react-ga';
 
 export default function Quote(props) {
+
+    ReactGA.initialize('G-94N1J9RCM6');
 
     const [quote, setQuote] = useState({
         amount: props.amount,

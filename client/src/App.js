@@ -7,14 +7,10 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { useState } from "react"
 import Quote from "./components/quote/quote";
-import ReactGA from 'react-ga';
 
 function App() {
   const [loan, setLoan] = useState();
   const [stage, setStage] = useState("quote")
-
-  
-  ReactGA.initialize('G-94N1J9RCM6');
 
   const handleQuote = (quote) => {
     setLoan(state => ({
