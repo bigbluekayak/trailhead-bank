@@ -5,17 +5,53 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Quote from "./components/quote/quote";
+import Application from "./components/application/application";
+import Thanks from "./components/thanks/thanks";
+import axios from "axios";
 
 function App() {
-  const [loan, setLoan] = useState();
-  const [stage, setStage] = useState("quote")
+  const [loan, setLoan] = useState({
+    stage: "quote",
+    quote: {
+      amount: "100",
+      term: "12",
+      apr: ""
+    }
+  });
+
+  useEffect(() => {
+    if(loan.stage === "application"){
+      axios.post("/api/application", loan).then(res => {
+        console.debug(res);
+        setLoan(state => ({
+          ...state,
+          stage: "complete"
+        }));
+      });
+    }
+  }, [loan.stage]);
 
   const handleQuote = (quote) => {
     setLoan(state => ({
       ...state,
       quote
+    }));
+  }
+
+  const handleApply = () => {
+    setLoan(state => ({
+      ...state,
+      stage: "apply"
+    }))
+  }
+
+  const handApplication = (application) => {
+    setLoan(state => ({
+      ...state,
+      application,
+      stage: "application"
     }));
   }
 
@@ -41,8 +77,9 @@ function App() {
           <Col xs="10" md="8" lg="6">
             <Card className="glass glass-border">
               <Card.Body className="text-light">
-                  <Quote amount="100" term="12" onQuote={handleQuote} stage={stage} />
-                  
+                  <Quote amount="100" term="12" onQuote={handleQuote} onApply={handleApply} loan={loan} />
+                  <Application onApplication={handApplication} loan={loan}/>
+                  <Thanks stage={loan.stage}/>
               </Card.Body>
               
             </Card>
