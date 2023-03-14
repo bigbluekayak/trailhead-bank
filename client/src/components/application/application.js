@@ -11,18 +11,18 @@ export default function Application(props) {
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm({
     defaultValues: {
-      first_name: "",
-      last_name: "",
-      email: "",
-      address_line_1: "",
-      address_line_2: "",
-      city: "",
-      postcode: "",
-      employment_status: "Employed full time",
-      annual_income: 0,
-      residential_status: "Homeowner",
-      monthly_mortgage_rent: 0,
-      other_outgoings: 0
+      first_name__c: "",
+      last_name__c: "",
+      email__c: "",
+      address_line_1__c: "",
+      address_line_2__c: "",
+      city__c: "",
+      postcode__c: "",
+      employment_status__c: "Employed full time",
+      annual_income__c: 0,
+      residential_status__c: "Homeowner",
+      monthly_mortgage_rent__c: 0,
+      other_outgoings__c: 0
     }
   });
   
@@ -40,60 +40,60 @@ export default function Application(props) {
       <Row className="mb-3">
         <Col>
           <Form.Group id="firstNameGroup">
-            <Form.Label htmlFor="first_name">First name</Form.Label>
-            <Form.Control type="text" placeholder="First name" name="first_name" id="first_name" {...register("first_name", { required: true })} isValid={errors.first_name} className={errors.first_name && "is-invalid"}/>
+            <Form.Label htmlFor="first_name__c">First name</Form.Label>
+            <Form.Control type="text" placeholder="First name" name="first_name__c" id="first_name__c" {...register("first_name__c", { required: true })} isValid={errors.first_name__c} className={errors.first_name__c && "is-invalid"}/>
           
           </Form.Group>
         </Col>
         <Col>
           <Form.Group id="lastNameGroup">
-            <Form.Label htmlFor="last_name">First name</Form.Label>
-            <Form.Control type="text" placeholder="Last name" name="last_name" id="last_name" {...register("last_name", { required: true })} isValid={errors.last_name} className={errors.last_name && "is-invalid"}/>
+            <Form.Label htmlFor="last_name__c">First name</Form.Label>
+            <Form.Control type="text" placeholder="Last name" name="last_name__c" id="last_name__c" {...register("last_name__c", { required: true })} isValid={errors.last_name__c} className={errors.last_name__c && "is-invalid"}/>
           
           </Form.Group>
         </Col>
       </Row>
       <Row className="mb-3">
-        <Form.Group id="emailGroup">
-          <Form.Label htmlFor="email">Email</Form.Label>
-          <Form.Control type="email" placeholder="Email" id="email" name="email" {...register("email", { required: true })} isValid={errors.email} className={errors.email && "is-invalid"}/>
+        <Form.Group id="email__cGroup">
+          <Form.Label htmlFor="email__c">email__c</Form.Label>
+          <Form.Control type="email__c" placeholder="email__c" id="email__c" name="email__c" {...register("email__c", { required: true })} isValid={errors.email__c} className={errors.email__c && "is-invalid"}/>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Col>
           <Form.Group id="address1Group">
-            <Form.Label htmlFor="address_line_1">Address line 1</Form.Label>
-            <Form.Control type="text" placeholder="Address line 1" name="address_line_1" id="address_line_1" {...register("address_line_1", { required: true })} isValid={errors.address_line_1} className={errors.address_line_1 && "is-invalid"}/>
+            <Form.Label htmlFor="address_line_1__c">Address line 1</Form.Label>
+            <Form.Control type="text" placeholder="Address line 1" name="address_line_1__c" id="address_line_1__c" {...register("address_line_1__c", { required: true })} isValid={errors.address_line_1__c} className={errors.address_line_1__c && "is-invalid"}/>
           
           </Form.Group>
         </Col>
         <Col>
           <Form.Group id="address2Group">
-            <Form.Label htmlFor="address_line_2">Address line 2</Form.Label>
-            <Form.Control type="text" placeholder="Address line 2" name="address_line_2" id="address_line_2" {...register("address_line_2")} />
+            <Form.Label htmlFor="address_line_2__c">Address line 2</Form.Label>
+            <Form.Control type="text" placeholder="Address line 2" name="address_line_2__c" id="address_line_2__c" {...register("address_line_2__c")} />
           
           </Form.Group>
         </Col> 
       </Row>
       <Row className="mb-3">
         <Col>
-          <Form.Group id="cityGroup">
-            <Form.Label htmlFor="city">Town or city</Form.Label>
-            <Form.Control type="text" placeholder="Town or city" name="city" id="city" {...register("city", { required: true })} isValid={errors.city} className={errors.city && "is-invalid"}/>
+          <Form.Group id="city__cGroup">
+            <Form.Label htmlFor="city__c">Town or city__c</Form.Label>
+            <Form.Control type="text" placeholder="Town or city__c" name="city__c" id="city__c" {...register("city__c", { required: true })} isValid={errors.city__c} className={errors.city__c && "is-invalid"}/>
           </Form.Group>
         </Col>
         <Col>
-          <Form.Group id="postcodeGroup">
-            <Form.Label htmlFor="postcode">Postcode</Form.Label>
-            <Form.Control type="text" placeholder="Postcode" name="postcode" id="postcode" {...register("postcode", { required: true })} isValid={errors.postcode} className={errors.postcode && "is-invalid"}/>
+          <Form.Group id="postcode__cGroup">
+            <Form.Label htmlFor="postcode__c">postcode__c</Form.Label>
+            <Form.Control type="text" placeholder="postcode__c" name="postcode__c" id="postcode__c" {...register("postcode__c", { required: true })} isValid={errors.postcode__c} className={errors.postcode__c && "is-invalid"}/>
           </Form.Group>
         </Col> 
       </Row>
       <Row className="mb-3">
         <Col>
           <Form.Group id="employmentStatusGroup">
-            <Form.Label htmlFor="employment_status">Employment status</Form.Label>
-            <Form.Select id="employment_status" name="employment_status" {...register("employment_status", { required: true })} isValid={errors.employment_status} className={errors.employment_status && "is-invalid"}>
+            <Form.Label htmlFor="employment_status__c">Employment status</Form.Label>
+            <Form.Select id="employment_status__c" name="employment_status__c" {...register("employment_status__c", { required: true })} isValid={errors.employment_status__c} className={errors.employment_status__c && "is-invalid"}>
               <option value="Employed full time">Employed full time</option>
               <option value="Employed part time">Employed part time</option>
               <option value="Unemployed">Unemployed</option>
@@ -102,10 +102,10 @@ export default function Application(props) {
         </Col>
         <Col className="mb-3">
           <Form.Group id="annualIncomeGroup">
-            <Form.Label htmlFor="annual_income">Annual income</Form.Label>
+            <Form.Label htmlFor="annual_income__c">Annual income</Form.Label>
             <InputGroup>
               <InputGroup.Text>£</InputGroup.Text>
-              <Form.Control type="number" placeholder="Annual income" id="annual_income" name="annual_income" {...register("annual_income", { required: true })} isValid={errors.annual_income} className={errors.annual_income && "is-invalid"}/>
+              <Form.Control type="number" placeholder="Annual income" id="annual_income__c" name="annual_income__c" {...register("annual_income__c", { required: true })} isValid={errors.annual_income__c} className={errors.annual_income__c && "is-invalid"}/>
             </InputGroup>
           </Form.Group>
         </Col>
@@ -116,8 +116,8 @@ export default function Application(props) {
       <Row className="mb-3">
         <Col>
           <Form.Group id="residentialStatusGroup">
-            <Form.Label htmlFor="residential_status">Residential status</Form.Label>
-            <Form.Select id="residential_status" name="residential_status" {...register("residential_status", { required: true })} isValid={errors.residential_status} className={errors.residential_status && "is-invalid"}>
+            <Form.Label htmlFor="residential_status__c">Residential status</Form.Label>
+            <Form.Select id="residential_status__c" name="residential_status__c" {...register("residential_status__c", { required: true })} isValid={errors.residential_status__c} className={errors.residential_status__c && "is-invalid"}>
             <option value="Homeowner">Homeowner</option>
             <option value="Renting">Renting</option>
             </Form.Select>
@@ -125,20 +125,20 @@ export default function Application(props) {
         </Col>
         <Col className="mb-3">
           <Form.Group id="monthlyMortgageOrRentGroup">
-            <Form.Label htmlFor="monthly_mortgage_rent">Monthly mortgage or rent</Form.Label>
+            <Form.Label htmlFor="monthly_mortgage_rent__c">Monthly mortgage or rent</Form.Label>
             <InputGroup>
               <InputGroup.Text>£</InputGroup.Text>
-              <Form.Control type="number" placeholder="Monthly mortgage or rent" id="monthly_mortgage_rent" name="monthly_mortgage_rent" {...register("monthly_mortgage_rent", { required: true })} isValid={errors.monthly_mortgage_rent} className={errors.monthly_mortgage_rent && "is-invalid"}/>
+              <Form.Control type="number" placeholder="Monthly mortgage or rent" id="monthly_mortgage_rent__c" name="monthly_mortgage_rent__c" {...register("monthly_mortgage_rent__c", { required: true })} isValid={errors.monthly_mortgage_rent__c} className={errors.monthly_mortgage_rent__c && "is-invalid"}/>
             </InputGroup>
           </Form.Group>
         </Col>
       </Row>
       <Row className="mb-3">
         <Form.Group id="otherMonthlyOutgoings">
-          <Form.Label htmlFor="other_outgoings">Other monthly outgoings</Form.Label>
+          <Form.Label htmlFor="other_outgoings__c">Other monthly outgoings</Form.Label>
           <InputGroup>
             <InputGroup.Text>£</InputGroup.Text>
-            <Form.Control type="number" placeholder="Other monthly outgoings" id="other_outgoings" name="other_outgoings" {...register("other_outgoings", { required: true })} isValid={errors.other_outgoings} className={errors.other_outgoings && "is-invalid"}/>
+            <Form.Control type="number" placeholder="Other monthly outgoings" id="other_outgoings__c" name="other_outgoings__c" {...register("other_outgoings__c", { required: true })} isValid={errors.other_outgoings__c} className={errors.other_outgoings__c && "is-invalid"}/>
           </InputGroup>
         </Form.Group>        
       </Row>
