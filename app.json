@@ -3,7 +3,13 @@
     "description": "A demo Heroku app",
     "repository": "https://github.com/bigbluekayak/trailhead-bank.git",
     "addons": [
-      "heroku-postgresql"
+      {
+        "plan": "heroku-postgresql:standard-0",
+        "as": "DATABASE"
+      },
+      {
+        "plan": "herokuconnect:demo"
+      }
     ],
     "scripts": {
       "postdeploy": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
