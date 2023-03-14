@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     if(loan.stage === "application"){
-      axios.post("/api/application", loan).then(res => {
+      axios.post("/api/application", loan.application).then(res => {
         console.debug(res);
         setLoan(state => ({
           ...state,

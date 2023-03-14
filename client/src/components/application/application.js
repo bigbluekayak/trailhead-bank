@@ -111,8 +111,6 @@ export default function Application(props) {
         </Col>
       </Row>
 
-      
-
       <Row className="mb-3">
         <Col>
           <Form.Group id="residentialStatusGroup">
