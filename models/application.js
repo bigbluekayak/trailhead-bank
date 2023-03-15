@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     
   }, {
     sequelize,
-    modelName: 'Loan_Application__c',
+    modelName: 'loan_application__c', //Case sensitive
     freezeTableName: true, // Important when using Heroku Connect as table will be created for us
     schema: "salesforce", // Important, Heroku Connect will automatically create this schema for us
     id: false,
